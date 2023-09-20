@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.merge-type-button {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #27ae60;
+    background-color: #a9dfbf;
+    color: #333;
+    cursor: pointer;
+    font-family: 'open sans', sans-serif;
+    transition: all 0.3s ease-in-out;
+    align-self: center;
+}
+
+.merge-type-button:hover {
+    background-color: #2ecc71;
+    color: #ffffff;
+}

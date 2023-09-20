@@ -1,0 +1,61 @@
+.page-container {
+    background: #e0e0e0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.main-header {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'open sans', sans-serif;
+    color:#0074d9;
+    margin-top: 0;
+    text-decoration:underline #27ae60;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.reset-button {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #27ae60;
+    background-color: #a9dfbf;
+    color: #333;
+    cursor: pointer;
+    font-family: 'open sans', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.reset-button:hover {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.bar-container {
+    display: flex; /* Use flexbox to arrange bars horizontally */
+    justify-content: center; /* Optional: Center bars horizontally */
+    align-items: flex-end; /* Optional: Align bars to the bottom */
+    margin-top: 20px;
+    min-height: 560px;
+}
+
+.border {
+    border:#333 solid 3px;
+}
+  
+.bar {
+    border: #3498db solid 1px; /* background color for bars */
+    margin-right: 2px; /* spacing between bars */
+    width: 4px;
+}
+  
