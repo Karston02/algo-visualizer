@@ -1,19 +1,17 @@
 from flask import Flask, jsonify
+import data_utils as du
 
 # Create a Flask web application instance.
 app = Flask(__name__)
 
-# Sample JSON data for testing
-data = [
-    {"id": 1, "name": "John", "age": 30},
-]
 
-# Define a route for '/api/members'
-@app.route('/api/members')
-def get_members():
-
-    # Return the randomly selected member as JSON response
-    return jsonify(data[0])
+# Define a route for '/'
+@app.route('/graph')
+def get_graph():
+    # this will generate each page reload
+    my_list = du.generate_data()
+    # Return the randomly list as JSON response
+    return jsonify(my_list)
 
 # Start the Flask application if this script is executed directly
 if __name__ == '__main__':
