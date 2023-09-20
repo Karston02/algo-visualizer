@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 
-# Create a Flask web application instance
+# Create a Flask web application instance.
 app = Flask(__name__)
 
 # Sample JSON data for testing
