@@ -27,7 +27,7 @@ function SortingVisualizer() {
   return (
     <div className="page-container">
       <h1 className="main-header">Algorithm Visualizer</h1>
-      < OptionBar />
+      <OptionBar graph={graph}/>
       <div className="border">
         <div className="bar-container">
           {graph.map((value, index) => (

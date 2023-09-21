@@ -1,6 +1,6 @@
 import React from 'react'
 import './optionBarStyles.css';
-function OptionBar() {
+function OptionBar(graph: any) {
   return (
     <div className="container">
         <button className="merge-type-button">Merge Sort</button>
