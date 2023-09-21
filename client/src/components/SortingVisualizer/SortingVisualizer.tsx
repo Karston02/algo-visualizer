@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './sortingVisualizerStyles.css';
-import OptionBar from '../OptionBar/OptionBar.tsx';
+import OptionBar from '../OptionBar/OptionBar'
 import axios from 'axios';
 
-export function SortingVisualizer() {
+function SortingVisualizer() {
   // Define a state variable 'graph' using the 'useState' hook
   const [graph, setGraph] = useState([]);
 
@@ -50,3 +50,5 @@ export function SortingVisualizer() {
     </div>
   );
 }
+
+export default SortingVisualizer;

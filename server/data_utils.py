@@ -5,3 +5,7 @@ def generate_data():
     for _ in range(175):
         my_list.append(random.randint(5, 550))
     return my_list
+
+def merge_sort():
+    """Sorts a list using the merge sort algorithm"""
+    

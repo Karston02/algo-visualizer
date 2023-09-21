@@ -1,5 +1,5 @@
 import React from 'react'
-import { SortingVisualizer } from './SortingVisualizer/SortingVisualizer.tsx';
+import SortingVisualizer from './components/SortingVisualizer/SortingVisualizer';
 
 function App() {
   
