@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './sortingVisualizerStyles.css';
 import OptionBar from '../OptionBar/OptionBar'
 import axios from 'axios';
-
+// test
 function SortingVisualizer() {
   // useState for graph data, only used to render bars on page load
   const [graph, setGraph] = useState([]);
