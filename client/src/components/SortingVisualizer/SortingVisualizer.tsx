@@ -4,15 +4,15 @@ import OptionBar from '../OptionBar/OptionBar'
 import axios from 'axios';
 
 function SortingVisualizer() {
-  // Define a state variable 'graph' using the 'useState' hook
+  // useState for graph data, only used to render bars on page load
   const [graph, setGraph] = useState([]);
-
-  // Function to fetch new data from the backend
+ 
+  // function to fetch data from backend
   const generateNewData = () => {
     axios
-      .get('/graph')
+      .get('/graph') // get request to '/graph' endpoint
       .then((response) => {
-        // Update the 'graph' state with the new data received from the backend
+        // update state with response data
         setGraph(response.data);
       })
       .catch((error) => {
@@ -20,24 +20,21 @@ function SortingVisualizer() {
       });
   };
 
-  // Use the 'useEffect' hook to fetch initial data when the component mounts
   useEffect(() => {
     generateNewData();
-  }, []);
+  }, []); // [] makes it so that this useEffect only runs on page load
 
   return (
     <div className="page-container">
-      {/* Display a heading */}
       <h1 className="main-header">Algorithm Visualizer</h1>
       < OptionBar />
-      {/* Render bars based on graph values */}
       <div className="border">
         <div className="bar-container">
           {graph.map((value, index) => (
             <div
               key={index}
               className="bar"
-              style={{ height: `${value}px` }}
+              style={{ height: `${value * 0.85}px` }}
             ></div>
           ))}
         </div>

@@ -10,7 +10,7 @@ app = Flask(__name__)
 def get_graph():
     # this will generate each page reload
     my_list = du.generate_data()
-    # Return the randomly list as JSON response
+    # return generated list as json
     return jsonify(my_list)
 
 # Start the Flask application if this script is executed directly
