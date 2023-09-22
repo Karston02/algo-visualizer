@@ -51,6 +51,8 @@
 
 .border {
     border:#333 solid 3px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
   
 .bar {
