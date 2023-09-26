@@ -12,7 +12,7 @@ function SortingVisualizer() {
     axios
       .get('/graph') // get request to '/graph' endpoint
       .then((response) => {
-        // update state with response data
+        // update state with response data.
         setGraph(response.data);
       })
       .catch((error) => {
