@@ -2,3 +2,4 @@ node_modules
 server/venv
 .vscode
 server/__pycache__
+gpt-prompt
