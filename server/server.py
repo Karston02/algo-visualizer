@@ -1,18 +1,18 @@
 from flask import Flask, jsonify
 import data_utils as du
 
-# Create a Flask web application instance.
 app = Flask(__name__)
 
-
-# Define a route for '/'
-@app.route('/graph')
+@app.route('/graph', methods=['GET'])
 def get_graph():
-    # this will generate each page reload
-    my_list = du.generate_data()
-    # return generated list as json
-    return jsonify(my_list)
+    bars = du.generate_data()
+    return jsonify(bars)
 
-# Start the Flask application if this script is executed directly
+@app.route('/merge-sort', methods=['GET'])
+def merge_sort():
+    bars = du.generate_data()  # Get the same array as in get_graph
+    du.merge_sort(bars)  # Sort the bars in-place using merge_sort from data_utils
+    return jsonify(bars)
+
 if __name__ == '__main__':
     app.run(debug=True)
