@@ -42,9 +42,9 @@
 }
 
 .bar-container {
-    display: flex; /* Use flexbox to arrange bars horizontally */
-    justify-content: center; /* Optional: Center bars horizontally */
-    align-items: flex-end; /* Optional: Align bars to the bottom */
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end; 
     margin-top: 20px;
     min-height: 560px;
 }
