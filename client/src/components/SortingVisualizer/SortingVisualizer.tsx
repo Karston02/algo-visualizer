@@ -27,7 +27,7 @@ function SortingVisualizer() {
     axios
       .get('/merge-sort')
       .then((response) => {
-        setGraph(response.data); // Set sorted data
+        setGraph(response.data); // set sorted data
       })
       .catch((error) => {
         console.error('Error:', error);
