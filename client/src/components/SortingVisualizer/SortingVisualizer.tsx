@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function SortingVisualizer() {
   const [graph, setGraph] = useState([]);
-  const [isSorting, setIsSorting] = useState(false);
+  const [, setIsSorting] = useState(false);
 
   const generateNewData = () => {
     axios
@@ -22,17 +22,20 @@ function SortingVisualizer() {
     generateNewData();
   }, []);
 
-  const startMergeSortAnimation = () => {
-    setIsSorting(true);
-    axios
-      .get('/merge-sort')
-      .then((response) => {
-        setGraph(response.data); // set sorted data
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+ const startMergeSortAnimation = () => {
+  setIsSorting(true);
+  axios
+    .get('/merge-sort')
+    .then((response) => {
+      const { bars, animations } = response.data;
+      // animateMergeSort(animations, bars);
+      setGraph(bars);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
+
 
   return (
     <div className="page-container">
