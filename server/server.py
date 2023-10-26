@@ -22,7 +22,6 @@ def bubble_sort():
     global bars
     if bars is not None:
         steps = du.bubble_sort(bars)
-        print("buffer")
     return jsonify(steps)
 if __name__ == '__main__':
     app.run(debug=True)
