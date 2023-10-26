@@ -42,11 +42,25 @@ const startBubbleSortAnimation = () => {
     .get('/bubble-sort')
     .then((response) => {
       const steps = response.data;
-      setGraph(steps[steps.length - 1]);
+      animateBubbleSort(steps);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
+};
+
+const animateBubbleSort = (steps: string | any[]) => {
+  let stepIndex = 0
+
+  const animationInterval = setInterval(() => {
+    if (stepIndex < steps.length) {
+      setGraph(steps[stepIndex]);
+      stepIndex += 1;
+    } else {
+      clearInterval(animationInterval);
+      setIsSorting(false);
+    }
+  }, 10);
 };
 
   return (
