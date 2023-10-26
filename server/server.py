@@ -13,10 +13,16 @@ def get_graph():
 @app.route('/merge-sort', methods=['GET'])
 def merge_sort():
     global bars
-    animations = []
     if bars is not None:
-        animations = du.merge_sort(bars)  # Get the animations list
-    return jsonify({"bars": bars, "animations": animations})  # Return both bars and animations
+        steps = du.merge_sort(bars)  # Get the animations list
+    return jsonify({"bars": bars, "steps": steps})  # Return both bars and animations
 
+@app.route('/bubble-sort', methods=['GET'])
+def bubble_sort():
+    global bars
+    if bars is not None:
+        steps = du.bubble_sort(bars)
+        print("buffer")
+    return jsonify(steps)
 if __name__ == '__main__':
     app.run(debug=True)

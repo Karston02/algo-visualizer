@@ -27,7 +27,7 @@ function SortingVisualizer() {
   axios
     .get('/merge-sort')
     .then((response) => {
-      const { bars, animations } = response.data;
+      const { bars, steps } = response.data;
       // animateMergeSort(animations, bars);
       setGraph(bars);
     })
@@ -36,6 +36,18 @@ function SortingVisualizer() {
     });
 };
 
+const startBubbleSortAnimation = () => {
+  setIsSorting(true);
+  axios
+    .get('/bubble-sort')
+    .then((response) => {
+      const steps = response.data;
+      setGraph(steps[steps.length - 1]);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
 
   return (
     <div className="page-container">
@@ -54,7 +66,10 @@ function SortingVisualizer() {
       </div>
       <div className="button-container">
         <button onClick={startMergeSortAnimation}>
-          THIS STARTS MERGE ANIMATION
+          MERGE TESTER
+        </button>
+        <button onClick={startBubbleSortAnimation}>
+          BUBBLE TESTER
         </button>
         <button className="reset-button" onClick={generateNewData}>
           Reset Data
