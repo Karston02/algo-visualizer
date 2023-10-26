@@ -61,4 +61,4 @@ def merge_sort(list, animations=None):
 
     return list, animations  # Return the list of animations
 
-print(merge_sort([10, 19, 14, 5, 8]))
+print(merge_sort(generate_data()))
