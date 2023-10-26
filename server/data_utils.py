@@ -2,8 +2,8 @@ import random
 def generate_data():
     """Creates a my_list with 500 elements of a random value (5-750)"""
     my_my_list = []
-    for _ in range(175):
-        my_my_list.append(random.randint(5, 550))
+    for _ in range(5):
+        my_my_list.append(random.randint(50, 100))
     return my_my_list
 
 def merge_sort(my_list, steps=[]):
@@ -65,7 +65,6 @@ def bubble_sort(my_list, steps=None):
         swapped = False
         for i in range(len(my_list) - 1):
             if my_list[i] > my_list[i + 1]:
-                # Swap the elements
                 my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
                 swapped = True
                 steps.append(my_list.copy())
