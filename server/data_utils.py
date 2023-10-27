@@ -77,11 +77,3 @@ def bubble_sort(my_list, steps=None, animate=None):
                 steps.append(my_list.copy())
                 animate.append((i, i + 1))
     return steps, animate
-
-
-my_list, my_steps = (merge_sort(generate_data()))
-print(my_steps)
-
-print("BUBBLE SORT START")
-my_steps, animations = (bubble_sort(generate_data()))
-print(my_steps + animations)
