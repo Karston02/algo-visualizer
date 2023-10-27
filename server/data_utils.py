@@ -1,9 +1,13 @@
 import random
+
+NUM_BARS = 25
+BAR_MIN_HEIGHT = 5
+BAR_MAX_HEIGHT = 550
 def generate_data():
     """Creates a my_list with 500 elements of a random value (5-750)"""
     my_my_list = []
-    for _ in range(5):
-        my_my_list.append(random.randint(50, 100))
+    for _ in range(NUM_BARS):
+        my_my_list.append(random.randint(BAR_MIN_HEIGHT, BAR_MAX_HEIGHT))
     return my_my_list
 
 def merge_sort(my_list, steps=[]):
@@ -54,12 +58,15 @@ def merge_sort(my_list, steps=[]):
             steps.append(my_list.copy())
     return my_list, steps  # Return the my_list of steps
 
-def bubble_sort(my_list, steps=None):
+def bubble_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the bubble sort algorithm. This algorithm compares two adjacent elements
     and swaps them if they are not in order. It will continue to iterate through the my_list until
     no swaps are made."""
     if steps is None:
         steps = [my_list.copy()]
+
+    if animate is None:
+        animate = [(-1, -1)]
     swapped = True
     while swapped:
         swapped = False
@@ -68,12 +75,13 @@ def bubble_sort(my_list, steps=None):
                 my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
                 swapped = True
                 steps.append(my_list.copy())
-    return steps
+                animate.append((i, i + 1))
+    return steps, animate
 
 
 my_list, my_steps = (merge_sort(generate_data()))
 print(my_steps)
 
 print("BUBBLE SORT START")
-my_steps = (bubble_sort(generate_data()))
-print(my_steps)
+my_steps, animations = (bubble_sort(generate_data()))
+print(my_steps + animations)
