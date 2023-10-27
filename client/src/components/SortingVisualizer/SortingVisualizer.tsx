@@ -3,11 +3,15 @@ import './sortingVisualizerStyles.css';
 import OptionBar from '../OptionBar/OptionBar';
 import axios from 'axios';
 import { startBubbleSortAnimation } from '../SortingFunctions/BubbleSort'
+import { startMergeSortAnimation } from '../SortingFunctions/MergeSort'
+import { startInsertionSortAnimation } from '../SortingFunctions/InsertionSort'
+import { startQuickSortAnimation } from '../SortingFunctions/QuickSort'
 
 function SortingVisualizer() {
   const [graph, setGraph] = useState([]);
   const [, setIsSorting] = useState(false);
 
+  // Generate new data for the graph
   const generateNewData = () => {
     axios
       .get('/graph')
@@ -18,69 +22,19 @@ function SortingVisualizer() {
         console.error('Error:', error);
       });
   };
-
+  // Generate new data on page load
   useEffect(() => {
     generateNewData();
-  }, []);
-
- const startMergeSortAnimation = () => {
-  setIsSorting(true);
-  axios
-    .get('/merge-sort')
-    .then((response) => {
-      const { bars, steps } = response.data;
-      // animateMergeSort(animations, bars);
-      setGraph(bars);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-};
-
-
-
-const startInsertionSortAnimation = () => {
-  setIsSorting(true);
-  axios
-    .get('/insertion-sort')
-    .then((response) => {
-      const { steps, animations } = response.data;
-      animateInsertionSort(steps, animations);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-}
-
-const animateInsertionSort = (steps: string | any[], animations: [number, number][]) => {
-}
-
-const startQuickSortAnimation = () => {
-  setIsSorting(true);
-  axios
-    .get('/insertion-sort')
-    .then((response) => {
-      const { steps, animations } = response.data;
-      animateInsertionSort(steps, animations);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-}
-
-const animateQuickSort = (steps: string | any[], animations: [number, number][]) => {
-}
-
-
+  }, []); // empty array to only run once on load
 
   return (
     <div className="page-container">
       <h1 className="main-header">Algorithm Visualizer</h1>
       <OptionBar 
       startBubbleSortAnimation={() => startBubbleSortAnimation(setIsSorting, setGraph)}
-      startMergeSortAnimation={startMergeSortAnimation} 
-      startInsertionSortAnimation={startInsertionSortAnimation} 
-      startQuickSortAnimation={startQuickSortAnimation}
+      startMergeSortAnimation={() => startMergeSortAnimation(setIsSorting, setGraph)} 
+      startInsertionSortAnimation={() => startInsertionSortAnimation(setIsSorting, setGraph)} 
+      startQuickSortAnimation={() => startQuickSortAnimation(setIsSorting, setGraph)}
       />
       <div className="border">
         <div className="bar-container">
