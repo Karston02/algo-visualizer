@@ -10,11 +10,16 @@ def generate_data():
         my_my_list.append(random.randint(BAR_MIN_HEIGHT, BAR_MAX_HEIGHT))
     return my_my_list
 
+# video example: https://www.youtube.com/watch?v=cVZMah9kEjI
 def merge_sort(my_list, steps=[]):
     """Sorts a my_list using the merge sort algorithm. This algorithm is recursive and splits
     the my_list into two halves until each my_list has a single element. Then, the algorithm
     compares the two my_lists and merges them into a single my_list in sorted order. It is commonly 
-    referred to as a divide and conquer algorithm."""
+    referred to as a divide and conquer algorithm.
+    
+    Time complexity: O(nlogn)
+    Space complexity: O(n)
+    """
     if len(my_list) > 1:
         left_list = my_list[:len(my_list)//2]
         right_list = my_list[len(my_list)//2:]
@@ -58,10 +63,15 @@ def merge_sort(my_list, steps=[]):
             steps.append(my_list.copy())
     return my_list, steps  # Return the my_list of steps
 
+# video example: https://www.youtube.com/watch?v=g_xesqdQqvA
 def bubble_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the bubble sort algorithm. This algorithm compares two adjacent elements
     and swaps them if they are not in order. It will continue to iterate through the my_list until
-    no swaps are made."""
+    no swaps are made.
+    
+    Time complexity: O(n^2)
+    Space complexity: O(1)
+    """
     # on first run, initialize steps to copy list
     if steps is None:
         steps = [my_list.copy()]
@@ -83,4 +93,39 @@ def bubble_sort(my_list, steps=None, animate=None):
                 steps.append(my_list.copy())
                 # append the indices of the two elements that were swapped to animate
                 animate.append((i, i + 1))
+    return steps, animate
+
+# video example: https://www.youtube.com/watch?v=4CykZVqBuCw
+def selection_sort(my_list, steps=None, animate=None):
+    """Sorts a my_list using the selection sort algorithm. This algorithm finds the smallest element
+    in the my_list and swaps it with the element in the first position. Then, it finds the second smallest
+    element and swaps it with the element in the second position. It continues to do this until the list is sorted.
+    
+    Time complexity: O(n^2)
+    Space complexity: O(1)
+    """
+    # on first run, initialize steps to copy list
+    if steps is None:
+        steps = [my_list.copy()]
+
+    # on first run, initialize animate[0] to be negative numbers.
+    if animate is None:
+        animate = [(-1, -1)]
+
+    # loop through the list
+    for i in range(len(my_list)):
+        # set the current index as the smallest value
+        smallest_value_index = i
+        # loop through the rest of the list
+        for j in range(i + 1, len(my_list)):
+            # if the current element is smaller than the smallest value, set the current element as the smallest value
+            if my_list[j] < my_list[smallest_value_index]:
+                smallest_value_index = j
+        # swap the smallest value with the first element
+        my_list[i], my_list[smallest_value_index] = my_list[smallest_value_index], my_list[i]
+        # append a copy of the current list to steps after swap
+        steps.append(my_list.copy())
+        # append the indices of the two elements that were swapped to animate
+        animate.append((i, smallest_value_index))
+
     return steps, animate
