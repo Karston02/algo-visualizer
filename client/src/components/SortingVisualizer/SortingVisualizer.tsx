@@ -41,27 +41,50 @@ const startBubbleSortAnimation = () => {
   axios
     .get('/bubble-sort')
     .then((response) => {
-      const steps = response.data;
-      animateBubbleSort(steps);
+      const { steps, animations } = response.data;
+      animateBubbleSort(steps, animations);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
 };
 
-const animateBubbleSort = (steps: string | any[]) => {
-  let stepIndex = 0
+const ANIMATION_INTERVAL = 50;
+const animateBubbleSort = (steps: string | any[], animations: [any, any][]) => {
+  let stepIndex = 0;
 
   const animationInterval = setInterval(() => {
     if (stepIndex < steps.length) {
-      setGraph(steps[stepIndex]);
+      const currentList = steps[stepIndex];
+      setGraph(currentList);
+
+      // Check if the animation values are greater than or equal to 0
+      const [i, j] = animations[stepIndex];
+      if (i >= 0 && j >= 0) { // skip first (-1, -1)
+        highlightComparedElements(i, j);
+      }
       stepIndex += 1;
     } else {
       clearInterval(animationInterval);
       setIsSorting(false);
     }
-  }, 10);
+  }, ANIMATION_INTERVAL);
 };
+
+
+const highlightComparedElements = (index1: number, index2: number) => {
+  const bars = document.querySelectorAll('.bar'); // Assuming you have a class "bar" for each bar element
+  bars[index1].classList.add('red-bar'); // Add a class to highlight the first compared element
+  bars[index2].classList.add('red-bar'); // Add a class to highlight the second compared element
+
+  // delay to remove red-bar (KEEP SAME AS ANIMATION INTERVAL)
+  setTimeout(() => {
+    bars[index1].classList.remove('red-bar');
+    bars[index2].classList.remove('red-bar');
+  }, ANIMATION_INTERVAL); // Adjust the delay (in milliseconds) as needed
+};
+
+
 
   return (
     <div className="page-container">

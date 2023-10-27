@@ -58,6 +58,15 @@
 .bar {
     border: #3498db solid 1px; /* background color for bars */
     margin-right: 2px; /* spacing between bars */
-    width: 4px;
+    width: 10px;
+}
+
+.red-bar {
+    background-color: #e74c3c;
+}
+
+.sorted-bar {
+    background-color: #27ae60;
+    border: none;
 }
   
