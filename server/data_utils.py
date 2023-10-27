@@ -62,18 +62,25 @@ def bubble_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the bubble sort algorithm. This algorithm compares two adjacent elements
     and swaps them if they are not in order. It will continue to iterate through the my_list until
     no swaps are made."""
+    # on first run, initialize steps to copy list
     if steps is None:
         steps = [my_list.copy()]
 
+    # on first run, initialize animate[0] to be negative numbers.
     if animate is None:
         animate = [(-1, -1)]
+    # set swapped to True to guarantee the loop runs once
     swapped = True
     while swapped:
         swapped = False
         for i in range(len(my_list) - 1):
+            # if the current element is greater than the next element, swap them
             if my_list[i] > my_list[i + 1]:
+                # simple swap
                 my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
                 swapped = True
+                # append a copy of the current list to steps after swap
                 steps.append(my_list.copy())
+                # append the indices of the two elements that were swapped to animate
                 animate.append((i, i + 1))
     return steps, animate
