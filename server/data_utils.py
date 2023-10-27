@@ -1,6 +1,6 @@
 import random
 
-NUM_BARS = 25
+NUM_BARS = 50
 BAR_MIN_HEIGHT = 5
 BAR_MAX_HEIGHT = 550
 def generate_data():
