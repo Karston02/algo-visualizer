@@ -6,6 +6,7 @@ import { startBubbleSortAnimation } from '../SortingFunctions/BubbleSort'
 import { startMergeSortAnimation } from '../SortingFunctions/MergeSort'
 import { startInsertionSortAnimation } from '../SortingFunctions/InsertionSort'
 import { startQuickSortAnimation } from '../SortingFunctions/QuickSort'
+import { startSelectionSortAnimation } from '../SortingFunctions/SelectionSort';
 
 function SortingVisualizer() {
   const [graph, setGraph] = useState([]);
@@ -35,6 +36,7 @@ function SortingVisualizer() {
       startMergeSortAnimation={() => startMergeSortAnimation(setIsSorting, setGraph)} 
       startInsertionSortAnimation={() => startInsertionSortAnimation(setIsSorting, setGraph)} 
       startQuickSortAnimation={() => startQuickSortAnimation(setIsSorting, setGraph)}
+      startSelectionSortAnimation={() => startSelectionSortAnimation(setIsSorting, setGraph)}
       />
       <div className="border">
         <div className="bar-container">
