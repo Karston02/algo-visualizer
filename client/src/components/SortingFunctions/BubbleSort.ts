@@ -13,6 +13,7 @@ export function startBubbleSortAnimation(setIsSorting: { (value: SetStateAction<
       // after call, retrieve the steps and animations from the response
       const { steps, animations } = response.data;
       animateBubbleSort(steps, animations); // animate the bubble sort
+      colorSortedBar(); // FIXME: This is a hacky way to color the sorted bars
     })
     .catch((error) => {
       // if there is an error, log it to the console and stop sorting
@@ -61,4 +62,24 @@ export function startBubbleSortAnimation(setIsSorting: { (value: SetStateAction<
     }, BUBBLE_ANIMATION_INTERVAL);
   };
 
+
+  let numSorted = 1;
+  const colorSortedBar = () => {
+    const bars = document.querySelectorAll('.bar');
+    const numUnsorted = bars.length - numSorted; // Number of bars that are not sorted
+  
+    if (numSorted < bars.length) {
+      const lastBar = bars[bars.length - numSorted];
+      lastBar.classList.add('sorted-bar');
+      numSorted += 1;
+  
+      if (numSorted % numUnsorted === 0) {
+        // If the number of sorted bars is a multiple of numUnsorted
+        setTimeout(() => {
+          colorSortedBar(); // Color the next bar
+        }, BUBBLE_ANIMATION_INTERVAL * numUnsorted);
+      }
+    }
+  };
+  
 }

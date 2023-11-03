@@ -13,8 +13,6 @@ def generate_data():
     return my_my_list
 
 # video example: https://www.youtube.com/watch?v=cVZMah9kEjI
-
-
 def merge_sort(my_list, steps=[]):
     """Sorts a my_list using the merge sort algorithm. This algorithm is recursive and splits
     the my_list into two halves until each my_list has a single element. Then, the algorithm
@@ -68,8 +66,6 @@ def merge_sort(my_list, steps=[]):
     return my_list, steps  # Return the my_list of steps
 
 # video example: https://www.youtube.com/watch?v=g_xesqdQqvA
-
-
 def bubble_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the bubble sort algorithm. This algorithm compares two adjacent elements
     and swaps them if they are not in order. It will continue to iterate through the my_list until
@@ -102,8 +98,6 @@ def bubble_sort(my_list, steps=None, animate=None):
     return steps, animate
 
 # video example: https://www.youtube.com/watch?v=4CykZVqBuCw
-
-
 def selection_sort(my_list, selection_steps=None, selection_animate=None):
     """Sorts a my_list using the selection sort algorithm. This algorithm finds the smallest element
     in the my_list and swaps it with the element in the first position. Then, it finds the second smallest
@@ -139,6 +133,7 @@ def selection_sort(my_list, selection_steps=None, selection_animate=None):
     return selection_steps, selection_animate
 
 
+# testing return in console
 my_list = generate_data()
 my_steps, my_animation = (selection_sort(my_list))
 print(my_steps + my_animation)
