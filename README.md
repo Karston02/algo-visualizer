@@ -1,5 +1,3 @@
-**Project Abstract**
-
 1. **Project Idea:**
    The project aims to create an Algorithm Visualizer, providing an interactive platform for users to observe and understand sorting algorithms in action. Users can choose from various sorting algorithms, visualize the step-by-step sorting process, and gain insights into algorithmic behaviors.
    Within the source code, each algorithm has a description of what is occurring as well as a link to a video describing the process.
