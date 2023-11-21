@@ -132,8 +132,43 @@ def selection_sort(my_list, selection_steps=None, selection_animate=None):
 
     return selection_steps, selection_animate
 
+def insertion_sort(my_list, steps=None, animate=None):
+    """Sorts a my_list using the insertion sort algorithm. This algorithm iterates through the my_list
+    and compares each element to the elements before it. If the element is smaller than the elements before it,
+    it is moved to the correct position.
 
+    Time complexity: O(n^2)
+    Space complexity: O(1)
+    """
+    # on first run, initialize steps to copy list
+    if steps is None:
+        steps = [my_list.copy()]
+
+    # on first run, initialize animate[0] to be negative numbers.
+    if animate is None:
+        animate = [(-1, -1)]
+
+    # loop through the list
+    for i in range(1, len(my_list)):
+        # set the current element as the key
+        key = my_list[i]
+        # set the current index as the index of the element before the key
+        j = i - 1
+        # while the index is greater than or equal to 0 and the element before the key is greater than the key
+        while j >= 0 and key < my_list[j]:
+            # move the element before the key to the right
+            my_list[j + 1] = my_list[j]
+            # decrement the index
+            j -= 1
+        # set the key to the correct position
+        my_list[j + 1] = key
+        # append a copy of the current list to steps after swap
+        steps.append(my_list.copy())
+        # append the indices of the two elements that were swapped to animate
+        animate.append((j + 1, i))
+
+    return steps, animate
 # testing return in console
 my_list = generate_data()
-my_steps, my_animation = (selection_sort(my_list))
+my_steps, my_animation = (insertion_sort(my_list))
 print(my_steps + my_animation)

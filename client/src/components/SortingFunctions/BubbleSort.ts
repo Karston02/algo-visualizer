@@ -13,7 +13,7 @@ export function startBubbleSortAnimation(setIsSorting: { (value: SetStateAction<
       // after call, retrieve the steps and animations from the response
       const { steps, animations } = response.data;
       animateBubbleSort(steps, animations); // animate the bubble sort
-      colorSortedBar(); // FIXME: This is a hacky way to color the sorted bars
+      // colorSortedBar(); // FIXME: This is a hacky way to color the sorted bars
     })
     .catch((error) => {
       // if there is an error, log it to the console and stop sorting
