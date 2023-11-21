@@ -2,36 +2,31 @@
 
 1. **Project Idea:**
    The project aims to create an Algorithm Visualizer, providing an interactive platform for users to observe and understand sorting algorithms in action. Users can choose from various sorting algorithms, visualize the step-by-step sorting process, and gain insights into algorithmic behaviors.
+   Within the source code, each algorithm has a description of what is occurring as well as a link to a video describing the process.
 
-2. **Software Model Design:**
-   - **Packages:**
-     - **SortingVisualizer:** Manages the overall visualization and user interface.
-     - **SortingFunctions:** Contains implementations for sorting algorithms (e.g., Bubble Sort, Merge Sort).
-     - **OptionBar:** Handles user options and algorithm selection.
-   - **Classes:**
-     - **SortingVisualizer:** Main class managing the application state.
-     - **SortingFunctions:** Classes for each sorting algorithm with methods for visualization.
-     - **OptionBar:** Class for user options and algorithm selection.
+3. **Software Model Design:**
+   - **File Structure:**
+     - **Client:** User-facing folder that holds various React components (such as OptionBar). It also holds SortingFunctions that process and animate the information received from the server.
+     - **Server:** Provides access to the algorithms implemented. This holds the HTTP Requests (GET/POST) as well as the Python implementation of each sorting algorithm.
+
    - **Methods/Functions:**
      - **SortingVisualizer:**
        - `generateNewData()`: Fetches and updates the data to be sorted.
        - `startSortingAnimation()`: Initiates the chosen sorting algorithm animation.
      - **SortingFunctions:**
-       - Methods for each sorting algorithm (e.g., `bubbleSort()`, `mergeSort()`).
+       - Methods for each sorting algorithm (e.g., `bubbleSort()`, `mergeSort()`, etc).
      - **OptionBar:**
-       - `handleAlgorithmSelection()`: Updates the selected algorithm.
+       - `handleAlgorithmSelection()`: Begins the animation according to the selected sort method.
 
-3. **Libraries Used:**
-   - **React:** For building the user interface.
+4. **Libraries Used:**
+   - **React:** Framework for building the user interface and resuable components.
    - **Axios:** For making HTTP requests to retrieve sorting data.
-   - *(Any other libraries based on specific requirements)*
 
-4. **Current Expectations:**
-   The software is expected to provide a clear and engaging visualization of sorting algorithms, allowing users to comprehend the underlying processes. It is anticipated to be functional and user-friendly.
+5. **Current Expectations:**
+   The software is expected to provide a clear and engaging visualization of sorting algorithms, allowing users to comprehend the underlying processes. It is anticipated to be functional, responsive, and user-friendly.
 
-5. **Expected Weaknesses:**
-   - **Performance:** Potential challenges with the real-time rendering of complex sorting algorithms.
-   - **Browser Compatibility:** Compatibility issues across various web browsers.
+6. **Expected Weaknesses:**
+   - **Performance:** Certain algorithms visualization takes longer to process (which is purposeful) - A sliding bar option will later be implemented to allow the user to speed/slow down the animation process.
+   - **Browser Compatibility:** Compatibility issues across various legacy web browsers (IE: Edge).
    - **Algorithm Complexity:** Certain algorithms may be harder to visualize due to their inherent complexity.
 
-By addressing these expectations and weaknesses, the project aims to deliver an effective and educational tool for understanding sorting algorithms through visualization.
