@@ -1,6 +1,6 @@
 import random
 
-NUM_BARS = 50
+NUM_BARS = 6
 BAR_MIN_HEIGHT = 5
 BAR_MAX_HEIGHT = 550
 
@@ -132,6 +132,7 @@ def selection_sort(my_list, selection_steps=None, selection_animate=None):
 
     return selection_steps, selection_animate
 
+# video example: https://www.youtube.com/watch?v=JU767SDMDvA
 def insertion_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the insertion sort algorithm. This algorithm iterates through the my_list
     and compares each element to the elements before it. If the element is smaller than the elements before it,
@@ -168,7 +169,64 @@ def insertion_sort(my_list, steps=None, animate=None):
         animate.append((j + 1, i))
 
     return steps, animate
+
+# video example: 
+def quick_sort(my_list, steps=None, animate=None):
+    """Sorts a my_list using the quick sort algorithm. This algorithm picks a pivot and partitions the my_list
+    into two halves. All elements less than the pivot are moved to the left of the pivot and all elements greater
+    than the pivot are moved to the right of the pivot. This process is repeated until the my_list is sorted.
+
+    Time complexity: 
+    O(nlogn) <-- average/best case
+    O(n^2) <-- worst case
+    Space complexity: O(n)
+    """
+    # on first run, initialize steps to copy list
+    if steps is None:
+        steps = [my_list.copy()]
+
+    # on first run, initialize animate[0] to be negative numbers.
+    if animate is None:
+        animate = [(-1, -1)]
+
+    # if the length of the list is greater than 1
+    if len(my_list) > 1:
+        # set the pivot to the last element in the list
+        pivot = my_list[-1]
+        # set the left index to 0
+        left_index = 0
+        # set the right index to the element before the pivot
+        right_index = len(my_list) - 2
+        # while the left index is less than or equal to the right index
+        while left_index <= right_index:
+            # if the element at the left index is greater than the pivot and the element at the right index is less than the pivot
+            if my_list[left_index] > pivot and my_list[right_index] < pivot:
+                # swap the elements at the left and right indices
+                my_list[left_index], my_list[right_index] = my_list[right_index], my_list[left_index]
+                # increment the left index
+                left_index += 1
+                # decrement the right index
+                right_index -= 1
+            # if the element at the left index is less than or equal to the pivot
+            elif my_list[left_index] <= pivot:
+                # increment the left index
+                left_index += 1
+            # if the element at the right index is greater than or equal to the pivot
+            elif my_list[right_index] >= pivot:
+                # decrement the right index
+                right_index -= 1
+        # swap the pivot with the element at the left index
+        my_list[left_index], my_list[-1] = my_list[-1], my_list[left_index]
+        # append a copy of the current list to steps after swap
+        steps.append(my_list.copy())
+        # append the indices of the two elements that were swapped to animate
+        animate.append((left_index, len(my_list) - 1))
+        # recursively call quick sort on the left and right halves
+        quick_sort(my_list[:left_index], steps, animate)
+        quick_sort(my_list[left_index + 1:], steps, animate)
+    return steps, animate
+
 # testing return in console
 my_list = generate_data()
-my_steps, my_animation = (insertion_sort(my_list))
+my_steps, my_animation = (quick_sort(my_list))
 print(my_steps + my_animation)
