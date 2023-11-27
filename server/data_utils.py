@@ -1,6 +1,6 @@
 import random
 
-NUM_BARS = 6
+NUM_BARS = 75
 BAR_MIN_HEIGHT = 5
 BAR_MAX_HEIGHT = 550
 
