@@ -228,6 +228,6 @@ def selection_sort(my_list, steps=None, animate=None):
 
 
 # testing return in console
-my_list = generate_data()
-my_steps, my_animation = (quick_sort(my_list))
-print(my_steps + my_animation)
+#my_list = generate_data()
+#my_steps, my_animation = (quick_sort(my_list))
+#print(my_steps + my_animation)
