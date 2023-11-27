@@ -1,0 +1,19 @@
+  .algorithm-tooltip {
+    position: absolute;
+    font-family: 'open sans', sans-serif;
+    background-color: rgb(129, 185, 223);
+    color: #fff;
+    padding: 8px;
+    border-radius: 0.5rem;
+    border: #27ae60 solid 2px;
+    z-index: 1;
+    font-size: 14px;
+    max-width: 200px;
+    display: none;
+    text-align: center;
+  }
+  
+  .tooltip-container:hover .algorithm-tooltip {
+    display: block;
+  }
+  

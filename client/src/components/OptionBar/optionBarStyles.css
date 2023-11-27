@@ -19,6 +19,7 @@
     font-family: 'open sans', sans-serif;
     transition: all 0.3s ease-in-out;
     align-self: center;
+    margin-bottom: 10px;
 }
 
 .merge-type-button:hover {
