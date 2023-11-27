@@ -170,7 +170,7 @@ def insertion_sort(my_list, steps=None, animate=None):
 
     return steps, animate
 
-# video example: 
+# video example: https://www.youtube.com/watch?v=9KBwdDEwal8&t=105s
 def quick_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the quick sort algorithm. This algorithm picks a pivot and partitions the my_list
     into two halves. All elements less than the pivot are moved to the left of the pivot and all elements greater
