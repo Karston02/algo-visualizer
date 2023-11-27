@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import './optionBarStyles.css';
 import AlgorithmTooltip from '../AlgorithmTooltip/AlgorithmTooltip';
 
+interface AlgorithmInfo {
+  description: string;
+  averageTimeComplexity: string;
+  worstCaseTimeComplexity: string;
+  spaceComplexity: string;
+}
+
 interface OptionBarProps {
   startBubbleSortAnimation: () => void;
   startMergeSortAnimation: () => void;
@@ -10,12 +17,37 @@ interface OptionBarProps {
   startSelectionSortAnimation: () => void;
 }
 
-const algorithmDescriptions: Record<string, string> = {
-  'Merge Sort': 'A divide and conquer algorithm that divides an array into two halves, recursively sorts them, and then merges the sorted halves.',
-  'Quick Sort': 'A divide and conquer algorithm that picks an element as a pivot and partitions the array around the pivot.',
-  'Insertion Sort': 'Builds the final sorted array one item at a time by repeatedly taking items from the input data and inserting them into the correct position.',
-  'Bubble Sort': 'Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.',
-  'Selection Sort': 'Divides the input list into a sorted and an unsorted region, and repeatedly selects the smallest element from the unsorted region to add to the sorted region.',
+const algorithmDescriptions: Record<string, AlgorithmInfo> = {
+  'Merge Sort': {
+    description: 'A divide and conquer algorithm that divides an array into two halves, recursively sorts them, and then merges the sorted halves.',
+    averageTimeComplexity: 'O(n log n)',
+    worstCaseTimeComplexity: 'O(n log n)',
+    spaceComplexity: 'O(n)',
+  },
+  'Quick Sort': {
+    description: 'A divide and conquer algorithm that picks an element as a pivot and partitions the array around the pivot.',
+    averageTimeComplexity: 'O(n log n)',
+    worstCaseTimeComplexity: 'O(n^2)',
+    spaceComplexity: 'O(log n)',
+  },
+  'Insertion Sort': {
+    description: 'Builds the final sorted array one item at a time by repeatedly taking items from the input data and inserting them into the correct position.',
+    averageTimeComplexity: 'O(n^2)',
+    worstCaseTimeComplexity: 'O(n^2)',
+    spaceComplexity: 'O(1)',
+  },
+  'Bubble Sort': {
+    description: 'Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.',
+    averageTimeComplexity: 'O(n^2)',
+    worstCaseTimeComplexity: 'O(n^2)',
+    spaceComplexity: 'O(1)',
+  },
+  'Selection Sort': {
+    description: 'Divides the input list into a sorted and an unsorted region, and repeatedly selects the smallest element from the unsorted region to add to the sorted region.',
+    averageTimeComplexity: 'O(n^2)',
+    worstCaseTimeComplexity: 'O(n^2)',
+    spaceComplexity: 'O(1)',
+  },
 };
 
 function OptionBar({ 
@@ -25,15 +57,15 @@ function OptionBar({
   startInsertionSortAnimation,
   startSelectionSortAnimation,
 }: OptionBarProps) {
-  const [tooltipDescription, setTooltipDescription] = useState<string | null>(null);
+  const [tooltipDescription, setTooltipDescription] = useState<AlgorithmInfo | null>(null);
 
   return (
     <div className="container">
-      {Object.entries(algorithmDescriptions).map(([algorithm, description]) => (
+      {Object.entries(algorithmDescriptions).map(([algorithm, info]) => (
         <div 
           key={algorithm}
           className="tooltip-container"
-          onMouseEnter={() => setTooltipDescription(description)}
+          onMouseEnter={() => setTooltipDescription(info)}
           onMouseLeave={() => setTooltipDescription(null)}
         >
           <button 
@@ -63,7 +95,7 @@ function OptionBar({
             {algorithm}
           </button>
           {tooltipDescription && (
-            <AlgorithmTooltip description={tooltipDescription} />
+            <AlgorithmTooltip {...tooltipDescription} />
           )}
         </div>
       ))}
