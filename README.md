@@ -44,3 +44,12 @@
 **References:**
   - https://github.com/dipesh-m/Sorting-Visualizer
   - https://github.com/clementmihailescu/Sorting-Visualizer
+
+**Examples:**
+  - Insertion Sort:
+    ![insertion_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/d529f30e-c749-4350-a7af-f765222fc636)
+  - Bubble Sort:
+    ![bubble_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/9a7ec49f-06df-40d0-a861-5a4397b775ac)
+  - Selection Sort:
+    ![selection_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/59c33e33-b361-4b74-be09-2f741d92fa46)
+
