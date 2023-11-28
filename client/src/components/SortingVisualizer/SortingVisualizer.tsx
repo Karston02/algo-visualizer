@@ -66,7 +66,6 @@ function SortingVisualizer() {
         }
         startQuickSortAnimation={() =>
           handleWIPClick("Quick Sort", quickSortNote)
-          // startQuickSortAnimation(setIsSorting, setGraph)
         }
         startSelectionSortAnimation={() =>
           startSelectionSortAnimation(setIsSorting, setGraph)
