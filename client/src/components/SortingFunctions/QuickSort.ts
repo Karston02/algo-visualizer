@@ -10,7 +10,7 @@ export function startQuickSortAnimation(setIsSorting: { (value: SetStateAction<b
   axios
       .get('/quick-sort')
       .then((response) => {
-      const { bars, steps } = response.data;
+      const { bars } = response.data;
       // animateMergeSort(animations, bars);
       setGraph(bars);
       })
