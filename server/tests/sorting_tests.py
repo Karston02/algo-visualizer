@@ -46,5 +46,13 @@ class TestSortingFunctions(unittest.TestCase):
         selection_final_result, _ = du.selection_sort(sorted_list)
         self.assertEqual(selection_final_result[-1], sorted_list)
 
+    def test_merge_sort(self):
+        sorted_list, _ = du.merge_sort(self.my_list.copy())
+        self.assertEqual(sorted_list, sorted(self.my_list))
+
+    def test_quick_sort(self):
+        sorted_list = du.quick_sort(self.my_list.copy())
+        self.assertEqual(sorted_list, sorted(self.my_list))
+
 if __name__ == '__main__':
     unittest.main()
