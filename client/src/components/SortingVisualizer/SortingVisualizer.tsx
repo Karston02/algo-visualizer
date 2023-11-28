@@ -3,11 +3,11 @@ import "./sortingVisualizerStyles.css";
 import OptionBar from "../OptionBar/OptionBar";
 import axios from "axios";
 import {
-  //startMergeSortAnimation,
+  startMergeSortAnimation,
   startInsertionSortAnimation,
   startSelectionSortAnimation,
   startBubbleSortAnimation,
-  //startQuickSortAnimation,
+  startQuickSortAnimation,
 } from "../SortingFunctions";
 import TemporaryWIP from "../TemporaryWIP/TemporaryWIP";
 
@@ -16,7 +16,10 @@ function SortingVisualizer() {
   const [, setIsSorting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
+  const [selectedAlgorithmNote, setSelectedAlgorithmNote] = useState("");
 
+  const mergeSortNote = 'Currently, merge sort is implemented and successfully sorts the data. However, the animation (i.e. the bars moving) which will be implemented by manipulating the array through JavaScript/TypeScript is under maintenance. ALL of the python code is complete and this can be confirmed by the sorted bars behind this text as well as the test files.'
+  const quickSortNote = 'Currently, quick sort is implemented and successfully sorts the data. However, the animation (i.e. the bars moving) which will be implemented by manipulating the array through JavaScript/TypeScript is under maintenance. ALL of the python code is complete and this can be confirmed by the sorted bars behind this text as well as the test files.'
 
   // Generate new data for the graph
   const generateNewData = () => {
@@ -34,10 +37,17 @@ function SortingVisualizer() {
     generateNewData();
   }, []); // empty array to only run once on load
 
-  const handleWIPClick = (algoName: string) => {
+  const handleWIPClick = (algoName: string, algoNote: string) => {
     // Instead of sorting, show the pop-up
     setShowPopup(true);
     setSelectedAlgorithm(algoName);
+    setSelectedAlgorithmNote(algoNote);
+    if (algoName === 'Merge Sort') {
+      startMergeSortAnimation(setIsSorting, setGraph)
+    }
+    if (algoName === 'Quick Sort') {
+      startQuickSortAnimation(setIsSorting, setGraph)
+    }
   };
   
   return (
@@ -49,14 +59,13 @@ function SortingVisualizer() {
         }
         startMergeSortAnimation={() =>
           // instead of sorting, popup a message saying that it's under construction
-          handleWIPClick("Merge Sort")
-          // startMergeSortAnimation(setIsSorting, setGraph)
+          handleWIPClick("Merge Sort", mergeSortNote)
         }
         startInsertionSortAnimation={() =>
           startInsertionSortAnimation(setIsSorting, setGraph)
         }
         startQuickSortAnimation={() =>
-          handleWIPClick("Quick Sort")
+          handleWIPClick("Quick Sort", quickSortNote)
           // startQuickSortAnimation(setIsSorting, setGraph)
         }
         startSelectionSortAnimation={() =>
@@ -68,7 +77,7 @@ function SortingVisualizer() {
           {showPopup && (
             <TemporaryWIP
               sortingName={selectedAlgorithm}
-              note="This algorithm is currently under construction."
+              note={selectedAlgorithmNote}
               onClose={() => setShowPopup(false)}
             />
           )}
