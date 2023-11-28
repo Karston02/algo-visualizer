@@ -9,10 +9,13 @@ import {
   startBubbleSortAnimation,
   startQuickSortAnimation,
 } from "../SortingFunctions";
+import TemporaryWIP from "../TemporaryWIP/TemporaryWIP";
 
 function SortingVisualizer() {
   const [graph, setGraph] = useState([]);
   const [, setIsSorting] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
 
   // Generate new data for the graph
   const generateNewData = () => {
@@ -30,6 +33,11 @@ function SortingVisualizer() {
     generateNewData();
   }, []); // empty array to only run once on load
 
+  const handleWIPClick = () => {
+    // Instead of sorting, show the pop-up
+    setShowPopup(true);
+  };
+  
   return (
     <div className="page-container">
       <h1 className="main-header">Algorithm Visualizer</h1>
@@ -38,7 +46,9 @@ function SortingVisualizer() {
           startBubbleSortAnimation(setIsSorting, setGraph)
         }
         startMergeSortAnimation={() =>
-          startMergeSortAnimation(setIsSorting, setGraph)
+          // instead of sorting, popup a message saying that it's under construction
+          handleWIPClick()
+          // startMergeSortAnimation(setIsSorting, setGraph)
         }
         startInsertionSortAnimation={() =>
           startInsertionSortAnimation(setIsSorting, setGraph)
@@ -52,6 +62,12 @@ function SortingVisualizer() {
       />
       <div className="border">
         <div className="bar-container">
+          {showPopup && (
+            <TemporaryWIP
+             sortingName="Bubble Sort"
+              note="This algorithm is currently under construction."
+            />
+          )}
           {graph.map((value, index) => (
             <div
               key={index}
