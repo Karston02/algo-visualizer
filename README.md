@@ -51,12 +51,15 @@
 2. Go into the repository with `cd algo-visualizer`
 3. Open 2 terminals (one for the client, one for the server)
 4. In the first terminal, do `cd server`
-5. Once you are in the server directory, (complete in a venv if you wish) do `pip install -r requirements.txt
-` 
-6. In the second terminal, do `cd client`
-7. Then, do `npm install`
-8. Now, you have everything installed, so in the first terminal (server), do `python server.py`
-9. Then, in the second terminal, do `npm start`
+5. Once you are in the server directory, establish a virutal environment with `python3 -m venv venv
+`
+   - On Windows, `.\venv\Scripts\activate`
+   - On Mac/Linux, `source venv/bin/activate`
+6. In the virtual environment, download the dependencies with `pip install -r requirements.txt`
+7. In the second terminal, do `cd client`
+8. Then, do `npm install`
+9. Now, you have everything installed, so in the first terminal (server), do `python server.py`
+10. Then, in the second terminal, do `npm start`
 
 **Examples:**
   - Insertion Sort:
