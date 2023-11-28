@@ -66,6 +66,7 @@ function SortingVisualizer() {
             <TemporaryWIP
              sortingName="Bubble Sort"
               note="This algorithm is currently under construction."
+              onClose={() => setShowPopup(false)}
             />
           )}
           {graph.map((value, index) => (
