@@ -1,18 +1,24 @@
 import React from 'react';
 import './temporaryWIPStyles.css';
 
-interface temporaryWIPProps {
+interface TemporaryWIPProps {
   sortingName: string;
   note: string;
+  onClose: () => void;
 }
 
-const temporaryWIP: React.FC<temporaryWIPProps> = ({ sortingName, note }) => {
+const TemporaryWIP: React.FC<TemporaryWIPProps> = ({ sortingName, note, onClose }) => {
   return (
     <div className="popup-container">
-      <p>Unfortunately, {sortingName} is currently under construction.</p>
-      <p>{note}</p>
+      <div className="popup-content">
+        <p>Unfortunately, {sortingName} is currently under construction.</p>
+        <p>{note}</p>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
+      </div>
     </div>
   );
 };
 
-export default temporaryWIP;
+export default TemporaryWIP;
