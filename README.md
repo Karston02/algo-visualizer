@@ -31,6 +31,7 @@
 **Libraries Used:**
    - **React:** Framework for building the user interface and reusable components.
    - **Axios:** For making HTTP GET requests to retrieve sorting data.
+   - **Flask:** To start the Python Server backend as a microservice framework.
 
 **Current Expectations:**
    The software is expected to provide a clear and engaging visualization of sorting algorithms, allowing users to comprehend the underlying processes. It is anticipated to be functional, responsive, and user-friendly.
