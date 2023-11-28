@@ -48,5 +48,6 @@ def quick_sort():
     if bars is not None:
         steps, animations = du.quick_sort(bars)
     return jsonify({"steps": steps, "animations": animations})
+
 if __name__ == '__main__':
     app.run(debug=True)
