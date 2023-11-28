@@ -207,8 +207,3 @@ def selection_sort(my_list, steps=None, animate=None):
 
     return steps, animate
 
-
-# testing return in console
-my_list = generate_data()
-sorted_list = (quick_sort(my_list))
-print(sorted_list)
