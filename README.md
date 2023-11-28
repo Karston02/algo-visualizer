@@ -47,7 +47,7 @@
 
 **Examples:**
   - Insertion Sort:
-    ![insertion_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/d529f30e-c749-4350-a7af-f765222fc636)
+    ![insertion_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/2e130e7d-2c90-47f3-a795-aedb2cd66568)
   - Bubble Sort:
     ![bubble_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/9a7ec49f-06df-40d0-a861-5a4397b775ac)
   - Selection Sort:
