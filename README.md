@@ -45,6 +45,18 @@
   - https://github.com/dipesh-m/Sorting-Visualizer
   - https://github.com/clementmihailescu/Sorting-Visualizer
 
+**Set Up Process:**
+1. Clone the repository with `git clone git@github.com:Karston02/algo-visualizer.git`
+2. Go into the repository with `cd algo-visualizer`
+3. Open 2 terminals (one for the client, one for the server)
+4. In the first terminal, do `cd server`
+5. Once you are in the server directory, (complete in a venv if you wish) do `pip install -r requirements.txt
+` 
+6. In the second terminal, do `cd client`
+7. Then, do `npm install`
+8. Now, you have everything installed, so in the first terminal (server), do `python server.py`
+9. Then, in the second terminal, do `npm start`
+
 **Examples:**
   - Insertion Sort:
     ![insertion_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/2e130e7d-2c90-47f3-a795-aedb2cd66568)
@@ -53,3 +65,5 @@
   - Selection Sort:
     ![selection_sort](https://github.com/Karston02/algo-visualizer/assets/108380847/59c33e33-b361-4b74-be09-2f741d92fa46)
 
+
+   
