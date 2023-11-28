@@ -15,6 +15,7 @@ function SortingVisualizer() {
   const [graph, setGraph] = useState([]);
   const [, setIsSorting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
 
 
   // Generate new data for the graph
@@ -33,9 +34,10 @@ function SortingVisualizer() {
     generateNewData();
   }, []); // empty array to only run once on load
 
-  const handleWIPClick = () => {
+  const handleWIPClick = (algoName: string) => {
     // Instead of sorting, show the pop-up
     setShowPopup(true);
+    setSelectedAlgorithm(algoName);
   };
   
   return (
@@ -47,14 +49,15 @@ function SortingVisualizer() {
         }
         startMergeSortAnimation={() =>
           // instead of sorting, popup a message saying that it's under construction
-          handleWIPClick()
+          handleWIPClick("Merge Sort")
           // startMergeSortAnimation(setIsSorting, setGraph)
         }
         startInsertionSortAnimation={() =>
           startInsertionSortAnimation(setIsSorting, setGraph)
         }
         startQuickSortAnimation={() =>
-          startQuickSortAnimation(setIsSorting, setGraph)
+          handleWIPClick("Quick Sort")
+          // startQuickSortAnimation(setIsSorting, setGraph)
         }
         startSelectionSortAnimation={() =>
           startSelectionSortAnimation(setIsSorting, setGraph)
@@ -64,7 +67,7 @@ function SortingVisualizer() {
         <div className="bar-container">
           {showPopup && (
             <TemporaryWIP
-             sortingName="Bubble Sort"
+              sortingName={selectedAlgorithm}
               note="This algorithm is currently under construction."
               onClose={() => setShowPopup(false)}
             />
