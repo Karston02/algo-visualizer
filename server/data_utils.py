@@ -1,6 +1,6 @@
 import random
 
-NUM_BARS = 75
+NUM_BARS = 5
 BAR_MIN_HEIGHT = 5
 BAR_MAX_HEIGHT = 550
 
@@ -55,18 +55,17 @@ def merge_sort(my_list, steps=[]):
             k += 1
             steps.append(my_list.copy())
 
-            # Append the index for the left my_list element.
-
         # If the right my_list has elements left.
         while j < len(right_list):
             my_list[k] = right_list[j]
             j += 1
             k += 1
             steps.append(my_list.copy())
+
     return my_list, steps  # Return the my_list of steps
 
 # video example: https://www.youtube.com/watch?v=9KBwdDEwal8&t=105s
-def quick_sort(my_list, steps=None, animate=None):
+def quick_sort(my_list):
     """Sorts a my_list using the quick sort algorithm. This algorithm picks a pivot and partitions the my_list
     into two halves. All elements less than the pivot are moved to the left of the pivot and all elements greater
     than the pivot are moved to the right of the pivot. This process is repeated until the my_list is sorted.
@@ -76,50 +75,32 @@ def quick_sort(my_list, steps=None, animate=None):
     O(n^2) <-- worst case
     Space complexity: O(n)
     """
-    # on first run, initialize steps to copy list
-    if steps is None:
-        steps = [my_list.copy()]
+    # if the length of the list is less than or equal to 1, return the list
+    if len(my_list) <= 1:
+        return my_list
 
-    # on first run, initialize animate[0] to be negative numbers.
-    if animate is None:
-        animate = [(-1, -1)]
+    # initialize the pivot as the last element in the list
+    pivot = my_list[-1]
+    # initialize the left and right partitions as empty lists
+    left_partition = []
+    right_partition = []
 
-    # if the length of the list is greater than 1
-    if len(my_list) > 1:
-        # set the pivot to the last element in the list
-        pivot = my_list[-1]
-        # set the left index to 0
-        left_index = 0
-        # set the right index to the element before the pivot
-        right_index = len(my_list) - 2
-        # while the left index is less than or equal to the right index
-        while left_index <= right_index:
-            # if the element at the left index is greater than the pivot and the element at the right index is less than the pivot
-            if my_list[left_index] > pivot and my_list[right_index] < pivot:
-                # swap the elements at the left and right indices
-                my_list[left_index], my_list[right_index] = my_list[right_index], my_list[left_index]
-                # increment the left index
-                left_index += 1
-                # decrement the right index
-                right_index -= 1
-            # if the element at the left index is less than or equal to the pivot
-            elif my_list[left_index] <= pivot:
-                # increment the left index
-                left_index += 1
-            # if the element at the right index is greater than or equal to the pivot
-            elif my_list[right_index] >= pivot:
-                # decrement the right index
-                right_index -= 1
-        # swap the pivot with the element at the left index
-        my_list[left_index], my_list[-1] = my_list[-1], my_list[left_index]
-        # append a copy of the current list to steps after swap
-        steps.append(my_list.copy())
-        # append the indices of the two elements that were swapped to animate
-        animate.append((left_index, len(my_list) - 1))
-        # recursively call quick sort on the left and right halves
-        quick_sort(my_list[:left_index], steps, animate)
-        quick_sort(my_list[left_index + 1:], steps, animate)
-    return my_list, steps
+    # loop through the list
+    for i in range(len(my_list) - 1):
+        # if the current element is less than the pivot, add it to the left partition
+        if my_list[i] < pivot:
+            left_partition.append(my_list[i])
+        # if the current element is greater than or equal to the pivot, add it to the right partition
+        else:
+            right_partition.append(my_list[i])
+
+    # recursively call quick sort on the left and right partitions
+    left_partition = quick_sort(left_partition)
+    right_partition = quick_sort(right_partition)
+
+    # return the sorted list
+    return left_partition + [pivot] + right_partition
+
 
 # video example: https://www.youtube.com/watch?v=JU767SDMDvA
 def insertion_sort(my_list, steps=None, animate=None):
@@ -228,6 +209,6 @@ def selection_sort(my_list, steps=None, animate=None):
 
 
 # testing return in console
-#my_list = generate_data()
-#my_steps, my_animation = (quick_sort(my_list))
-#print(my_steps + my_animation)
+my_list = generate_data()
+sorted_list = (quick_sort(my_list))
+print(sorted_list)

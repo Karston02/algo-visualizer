@@ -19,6 +19,12 @@ def merge_sort():
         steps = du.merge_sort(bars)
     return jsonify({"bars": bars, "steps": steps})
 
+@app.route('/quick-sort', methods=['GET'])
+def quick_sort():
+    global bars
+    if bars is not None:
+        sorted_list = du.quick_sort(bars)
+    return jsonify({"bars": sorted_list})
 
 @app.route('/bubble-sort', methods=['GET'])
 def bubble_sort():
@@ -40,13 +46,6 @@ def insertion_sort():
     global bars
     if bars is not None:
         steps, animations = du.insertion_sort(bars)
-    return jsonify({"steps": steps, "animations": animations})
-
-@app.route('/quick-sort', methods=['GET'])
-def quick_sort():
-    global bars
-    if bars is not None:
-        steps, animations = du.quick_sort(bars)
     return jsonify({"steps": steps, "animations": animations})
 
 if __name__ == '__main__':
