@@ -3,11 +3,11 @@ import "./sortingVisualizerStyles.css";
 import OptionBar from "../OptionBar/OptionBar";
 import axios from "axios";
 import {
-  startMergeSortAnimation,
+  //startMergeSortAnimation,
   startInsertionSortAnimation,
   startSelectionSortAnimation,
   startBubbleSortAnimation,
-  startQuickSortAnimation,
+  //startQuickSortAnimation,
 } from "../SortingFunctions";
 import TemporaryWIP from "../TemporaryWIP/TemporaryWIP";
 
