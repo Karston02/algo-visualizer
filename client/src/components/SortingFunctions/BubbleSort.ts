@@ -2,7 +2,7 @@ import axios from 'axios';
 import { SetStateAction } from 'react';
 
 // delay between each animation step (in ms)
-const BUBBLE_ANIMATION_INTERVAL = 40;
+const BUBBLE_ANIMATION_INTERVAL = 15;
 
 export function startBubbleSortAnimation(setIsSorting: { (value: SetStateAction<boolean>): void; (arg0: boolean): void; }, setGraph: { (value: SetStateAction<never[]>): void; (arg0: any): void; }) {
 
