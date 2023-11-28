@@ -92,7 +92,7 @@ function SortingVisualizer() {
       </div>
       <div className="button-container">
         <button className="reset-button" onClick={generateNewData}>
-          Reset Data
+          Generate New Data
         </button>
       </div>
     </div>
