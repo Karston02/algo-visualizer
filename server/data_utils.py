@@ -13,6 +13,7 @@ def generate_data():
     return my_my_list
 
 # video example: https://www.youtube.com/watch?v=cVZMah9kEjI
+# TODO: refactor for recursive (D&C) algorithms
 def merge_sort(my_list, steps=[]):
     """Sorts a my_list using the merge sort algorithm. This algorithm is recursive and splits
     the my_list into two halves until each my_list has a single element. Then, the algorithm
@@ -66,6 +67,7 @@ def merge_sort(my_list, steps=[]):
     return my_list, steps  # Return the my_list of steps
 
 # video example: https://www.youtube.com/watch?v=9KBwdDEwal8&t=105s
+# TODO: refactor for recursive (D&C) algorithms
 def quick_sort(my_list, steps=None, animate=None):
     """Sorts a my_list using the quick sort algorithm. This algorithm picks a pivot and partitions the my_list
     into two halves. All elements less than the pivot are moved to the left of the pivot and all elements greater
