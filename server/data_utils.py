@@ -4,7 +4,6 @@ NUM_BARS = 75
 BAR_MIN_HEIGHT = 5
 BAR_MAX_HEIGHT = 550
 
-
 def generate_data():
     """Creates a my_list with 500 elements of a random value (5-750)"""
     my_my_list = []
@@ -100,7 +99,6 @@ def quick_sort(my_list):
 
     # return the sorted list
     return left_partition + [pivot] + right_partition
-
 
 # video example: https://www.youtube.com/watch?v=JU767SDMDvA
 def insertion_sort(my_list, steps=None, animate=None):
