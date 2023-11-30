@@ -1,7 +1,10 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import data_utils as du
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 bars = None  # Initialize bars to None
 
 # This route is used to get the data for the graph
