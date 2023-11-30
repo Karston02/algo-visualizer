@@ -49,4 +49,4 @@ def insertion_sort():
     return jsonify({"steps": steps, "animations": animations})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+      app.run(host='0.0.0.0', port=80)
